@@ -1,0 +1,35 @@
+#:kivy 2.1.0
+
+<SnakePart@Widget>:
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 1  # green body
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<Food@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 1  # red food
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+<GameBoard>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.1, 1  # dark background
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    SnakePart:
+        id: snake_head
+        size: root.cell_size, root.cell_size
+
+    # Body parts will be added dynamically
+
+    Food:
+        id: food
+        size: root.cell_size, root.cell_size
